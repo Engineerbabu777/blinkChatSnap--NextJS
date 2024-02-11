@@ -1,25 +1,27 @@
-// import { auth } from "@/auth";
+import { auth } from "@/auth";
 import Navbar from "@/components/shared/navbar";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
 export default async function Home() {
-	// const session = await auth();
+	const session = await auth();
+
+	console.log(session)
 	return (
 		<div className='bg-[#fffc00]'>
 			<div className='min-h-screen flex flex-col items-center justify-center max-w-7xl mx-auto'>
 				<Navbar />
 				<main className='flex flex-1 flex-col md:flex-row items-center justify-center px-8 mt-4'>
 					<div className='flex-1 md:text-left text-center h-full'>
-						<h1 className='text-4xl md:text-6xl font-bold'>BlinkSnap Chat!</h1>
+						<h1 className='text-4xl md:text-6xl font-bold'>SnapNext 4 programmers!</h1>
 						<p className='mt-4 text-xl font-semibold'>
 							Share your code with your friends to get feedback and improve your code.
 						</p>
 						<div className='mt-4'>
 							<p className='mt-2 text-lg font-semibold'>What are you waiting for?</p>
 						</div>
-						{true ? (
+						{!session ? (
 							<Button
 								asChild
 								className='mt-4 bg-black text-white flex items-center rounded-lg gap-2 mx-auto md:mx-0'
